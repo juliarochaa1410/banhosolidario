@@ -1,3 +1,44 @@
+/* Fontes hospedadas no próprio site (licença SIL OFL, ver /fonts) */
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/baloo-2-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Baloo 2';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/baloo-2-latin-800-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/nunito-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/nunito-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Nunito';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/nunito-latin-800-normal.woff2') format('woff2');
+}
+
 :root {
   --bg: #f4fafb;
   --surface: #ffffff;
@@ -97,6 +138,13 @@ h3 {
 
 [hidden] {
   display: none !important;
+}
+
+.sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
 }
 
 .sr-only {
@@ -709,8 +757,8 @@ h3 {
 
 .point {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
   padding: 14px;
   border-radius: 16px;
@@ -730,6 +778,8 @@ h3 {
 }
 
 .point-info {
+  flex: 1;
+  min-width: 0;
   display: flex;
   gap: 10px;
   align-items: flex-start;
@@ -758,12 +808,13 @@ h3 {
 }
 
 .point-btn {
+  flex: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
   height: 34px;
-  padding: 0 14px;
-  margin-left: 28px;
+  padding: 0 12px;
+  white-space: nowrap;
   border-radius: 999px;
   background: var(--surface);
   color: var(--teal-dark);
@@ -1125,6 +1176,26 @@ main,
   pointer-events: none;
   z-index: 0;
 }
+
+.bubbles span:nth-child(1) { --x: 6%; --s: 26px; --d: 14s; --w: 0s; }
+.bubbles span:nth-child(2) { --x: 18%; --s: 12px; --d: 11s; --w: -4s; }
+.bubbles span:nth-child(3) { --x: 34%; --s: 18px; --d: 16s; --w: -9s; }
+.bubbles span:nth-child(4) { --x: 52%; --s: 10px; --d: 12s; --w: -2s; }
+.bubbles span:nth-child(5) { --x: 68%; --s: 30px; --d: 18s; --w: -7s; }
+.bubbles span:nth-child(6) { --x: 82%; --s: 14px; --d: 13s; --w: -11s; }
+.bubbles span:nth-child(7) { --x: 93%; --s: 22px; --d: 15s; --w: -5s; }
+
+/* Atraso em cascata ao surgir */
+.steps .step:nth-child(2),
+.gallery img:nth-child(2),
+.help-side .card:nth-child(1) { --i: 1; }
+.steps .step:nth-child(3),
+.gallery img:nth-child(3),
+.help-side .card:nth-child(2) { --i: 2; }
+.gallery img:nth-child(4) { --i: 3; }
+.gallery img:nth-child(5) { --i: 4; }
+.gallery img:nth-child(6) { --i: 5; }
+.gallery img:nth-child(7) { --i: 6; }
 
 .bubbles span {
   position: absolute;
