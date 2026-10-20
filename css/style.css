@@ -709,60 +709,77 @@ h3 {
 
 .point {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
   align-items: flex-start;
-  margin: -8px -10px;
-  padding: 8px 10px;
-  border-radius: 12px;
+  gap: 12px;
+  padding: 14px;
+  border-radius: 16px;
+  background: var(--tint-2);
   color: var(--ink);
   text-decoration: none;
-  transition: background-color 0.15s;
+  transition: background-color 0.15s, transform 0.12s;
 }
 
 .point:hover {
-  background: var(--tint-2);
+  background: #e3f2f4;
   color: var(--ink);
 }
 
-.point:hover .point-go {
-  color: var(--deep);
+.point:active {
+  transform: scale(0.98);
 }
 
-.points .icon {
+.point-info {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.point-info .icon {
   width: 18px;
   height: 18px;
   margin-top: 2px;
   color: var(--teal);
 }
 
-.point div {
-  flex: 1;
-  min-width: 0;
+.point-text {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
-.points strong {
+.point-text strong {
   font-size: 15px;
 }
 
-.points span {
+.point-text span {
   font-size: 13px;
   color: var(--muted);
 }
 
-.points .point-go {
-  flex: none;
-  align-self: center;
-  font-size: 12px;
-  font-weight: 800;
+.point-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 14px;
+  margin-left: 28px;
+  border-radius: 999px;
+  background: var(--surface);
   color: var(--teal-dark);
-  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 800;
+  transition: background-color 0.15s, color 0.15s;
 }
 
-.points .point-go span {
-  font-size: 14px;
-  color: inherit;
+.point-btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.point:hover .point-btn {
+  background: var(--teal);
+  color: #fff;
 }
 
 .btn-soft {
@@ -1060,12 +1077,21 @@ h3 {
     flex: 1;
   }
 
-  .points .point:hover {
+  .point {
     background: var(--surface);
   }
 
+  .point:hover {
+    background: var(--surface);
+    box-shadow: 0 4px 14px rgba(13, 79, 89, 0.1);
+  }
+
+  .point-btn {
+    background: var(--tint);
+  }
+
   .points {
-    flex: 0 0 360px;
+    flex: 0 0 340px;
     border-top: 0;
     background: var(--tint-2);
     border-radius: 18px;
