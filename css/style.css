@@ -707,10 +707,25 @@ h3 {
   gap: 10px;
 }
 
-.points li {
+.point {
   display: flex;
   gap: 10px;
   align-items: flex-start;
+  margin: -8px -10px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  color: var(--ink);
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+
+.point:hover {
+  background: var(--tint-2);
+  color: var(--ink);
+}
+
+.point:hover .point-go {
+  color: var(--deep);
 }
 
 .points .icon {
@@ -720,7 +735,9 @@ h3 {
   color: var(--teal);
 }
 
-.points li div {
+.point div {
+  flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
@@ -732,6 +749,20 @@ h3 {
 .points span {
   font-size: 13px;
   color: var(--muted);
+}
+
+.points .point-go {
+  flex: none;
+  align-self: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--teal-dark);
+  white-space: nowrap;
+}
+
+.points .point-go span {
+  font-size: 14px;
+  color: inherit;
 }
 
 .btn-soft {
@@ -1029,8 +1060,12 @@ h3 {
     flex: 1;
   }
 
+  .points .point:hover {
+    background: var(--surface);
+  }
+
   .points {
-    flex: 0 0 280px;
+    flex: 0 0 360px;
     border-top: 0;
     background: var(--tint-2);
     border-radius: 18px;

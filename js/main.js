@@ -8,7 +8,7 @@
       name: 'BANHO SOLIDARIO ILHEUS',
       city: 'ILHEUS'
     },
-    // Deixe vazio ('') para esconder o link no site
+    // Enquanto estiver vazio (''), o botão aparece mas não abre nada
     instagram: '', // ex.: 'https://www.instagram.com/banhosolidario'
     whatsapp: '', // só números, com DDI e DDD. ex.: '5573999999999'
     whatsappText: 'Olá! Quero ser voluntário(a) no Banho Solidário.',
@@ -179,20 +179,24 @@
   });
 
   // ---- Links das redes ----
+  // Sem endereço configurado o botão aparece, mas não leva a lugar nenhum
+
+  function setLink(a, url) {
+    if (url) {
+      a.href = url;
+      return;
+    }
+    a.href = '#';
+    a.removeAttribute('target');
+    a.addEventListener('click', function (e) { e.preventDefault(); });
+  }
 
   $$('[data-link="instagram"]').forEach(function (a) {
-    if (CONFIG.instagram) a.href = CONFIG.instagram;
-    else a.hidden = true;
+    setLink(a, CONFIG.instagram);
   });
 
   $$('[data-link="whatsapp"]').forEach(function (a) {
-    if (CONFIG.whatsapp) a.href = 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(CONFIG.whatsappText);
-    else a.hidden = true;
-  });
-
-  $$('[data-hide-if-empty]').forEach(function (el) {
-    var visible = el.querySelectorAll('a:not([hidden])').length > 0;
-    if (!visible) el.hidden = true;
+    setLink(a, CONFIG.whatsapp ? 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(CONFIG.whatsappText) : '');
   });
 
   // ---- Animações ----
