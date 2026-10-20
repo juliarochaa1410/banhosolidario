@@ -602,6 +602,7 @@ h3 {
 
 .gallery img {
   width: 100%;
+  height: auto;
   aspect-ratio: 1;
   object-fit: cover;
   border-radius: 16px;
@@ -612,6 +613,16 @@ h3 {
   grid-column: span 2;
   aspect-ratio: 4 / 3;
   border-radius: 18px;
+}
+
+/* Ordem das fotos no celular (igual ao protótipo) */
+@media (max-width: 899px) {
+  .gallery img:nth-child(6) { order: 1; }
+  .gallery img:nth-child(2) { order: 2; }
+  .gallery img:nth-child(7) { order: 3; }
+  .gallery img:nth-child(4) { order: 4; }
+  .gallery img:nth-child(3) { order: 5; }
+  .gallery img:nth-child(5) { order: 6; }
 }
 
 /* Outras formas de ajudar */
