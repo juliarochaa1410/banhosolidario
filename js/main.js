@@ -10,8 +10,7 @@
     },
     // Enquanto estiver vazio (''), o botão aparece mas não abre nada
     instagram: '', // ex.: 'https://www.instagram.com/banhosolidario'
-    whatsapp: '', // só números, com DDI e DDD. ex.: '5573999999999'
-    whatsappText: 'Olá! Quero ser voluntário(a) no Banho Solidário.',
+    // Os links do WhatsApp (wa.me) ficam direto no index.html
     defaultAmount: 25
   };
 
@@ -193,10 +192,6 @@
 
   $$('[data-link="instagram"]').forEach(function (a) {
     setLink(a, CONFIG.instagram);
-  });
-
-  $$('[data-link="whatsapp"]').forEach(function (a) {
-    setLink(a, CONFIG.whatsapp ? 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(CONFIG.whatsappText) : '');
   });
 
   // ---- Animações ----
