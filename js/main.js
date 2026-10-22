@@ -8,9 +8,7 @@
       name: 'BANHO SOLIDARIO ILHEUS',
       city: 'ILHEUS'
     },
-    // Enquanto estiver vazio (''), o botão aparece mas não abre nada
-    instagram: '', // ex.: 'https://www.instagram.com/banhosolidario'
-    // Os links do WhatsApp (wa.me) ficam direto no index.html
+    // Os links do Instagram e do WhatsApp ficam direto no index.html
     defaultAmount: 25
   };
 
@@ -175,23 +173,6 @@
         copyText(url).then(function () { showToast('Link copiado'); });
       }
     });
-  });
-
-  // ---- Links das redes ----
-  // Sem endereço configurado o botão aparece, mas não leva a lugar nenhum
-
-  function setLink(a, url) {
-    if (url) {
-      a.href = url;
-      return;
-    }
-    a.href = '#';
-    a.removeAttribute('target');
-    a.addEventListener('click', function (e) { e.preventDefault(); });
-  }
-
-  $$('[data-link="instagram"]').forEach(function (a) {
-    setLink(a, CONFIG.instagram);
   });
 
   // ---- Animações ----
